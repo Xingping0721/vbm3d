@@ -56,10 +56,10 @@ cd build/bin
 
 ```Bash
 cd build/bin
-./VBM3Ddenoising_OF.sh ../../video/i%04d.png 20 ../../deno_OF_%03d.tif 1 10
+./VBM3Ddenoising -i ../../video/i%04d.png -f 1 -l 10 -sigma 20 -T2dh 0
 ```
 - 引数の順序 : 入力ファイルパス ノイズ標準偏差 出力ファイルパス 開始フレーム 終了フレーム
-
+- -T2dhが0ならDCT、1なら違う変換
 - 出力先 : 上記の例では、プロジェクトのルートディレクトリ（../../）に deno_OF_001.tif 等が生成されます。
 
 - 注意 : 途中で生成されるオプティカルフローファイル（.flo）は build/bin/ 内に一時的に出力されます。
