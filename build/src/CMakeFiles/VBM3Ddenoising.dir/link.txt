@@ -1,0 +1,1 @@
+/usr/bin/c++  -std=c++11 -Wall -O3 -w -s -ffast-math -fomit-frame-pointer -fstrength-reduce -fopenmp -rdynamic CMakeFiles/VBM3Ddenoising.dir/main.cpp.o -o ../bin/VBM3Ddenoising  -ltiff -ljpeg -lpng -lz -ltiff -ljpeg -lpng -lz -lfftw3f libVBM3DLibrary.a -lpng -ltiff -ljpeg -lpng -lz -ltiff -ljpeg -lpng -lz -lfftw3f 

@@ -1,0 +1,20 @@
+
+# Consider dependencies only in project.
+set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
+
+# The set of languages for which implicit dependencies are needed:
+set(CMAKE_DEPENDS_LANGUAGES
+  )
+
+# The set of dependency files which are needed:
+set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/xing/thesis_schedule_and_memo/application_3DDCT/vbm3d/multiscaler/iio.c" "multiscaler/CMakeFiles/multiscaler.dir/iio.c.o" "gcc" "multiscaler/CMakeFiles/multiscaler.dir/iio.c.o.d"
+  "/home/xing/thesis_schedule_and_memo/application_3DDCT/vbm3d/multiscaler/multiscaler.cpp" "multiscaler/CMakeFiles/multiscaler.dir/multiscaler.cpp.o" "gcc" "multiscaler/CMakeFiles/multiscaler.dir/multiscaler.cpp.o.d"
+  )
+
+# Targets to which this target links.
+set(CMAKE_TARGET_LINKED_INFO_FILES
+  )
+
+# Fortran module output directory.
+set(CMAKE_Fortran_TARGET_MODULE_DIR "")

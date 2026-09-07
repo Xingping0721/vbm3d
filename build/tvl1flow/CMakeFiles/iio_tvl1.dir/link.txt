@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC  -std=c99 -fopenmp -shared -Wl,-soname,libiio_tvl1.so -o ../lib/libiio_tvl1.so CMakeFiles/iio_tvl1.dir/iio.c.o  -ltiff -ljpeg -lpng -lz -ltiff -ljpeg -lpng -lz -lfftw3f 

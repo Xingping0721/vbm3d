@@ -1,0 +1,1 @@
+/usr/bin/cc  -std=c99 -fopenmp -rdynamic CMakeFiles/tvl1flow.dir/main.c.o -o ../bin/tvl1flow  -Wl,-rpath,/home/xing/thesis_schedule_and_memo/application_3DDCT/vbm3d/build/lib -ltiff -ljpeg -lpng -lz -ltiff -ljpeg -lpng -lz -lfftw3f ../lib/libiio_tvl1.so -ltiff -ljpeg -lpng -lm -ltiff -ljpeg -lpng -lz -ltiff -ljpeg -lpng -lz -lfftw3f 

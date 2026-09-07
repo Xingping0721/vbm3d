@@ -5,6 +5,79 @@ IMPLEMENTATION OF THE VIDEO DENOISING ALGORITHM VBM3D
 * Copyright : (C) 2018 IPOL Image Processing On Line http://www.ipol.im/
 * Licence   : GPL v3+, see gpl.txt
 
+
+
+
+---
+---
+---
+
+
+
+
+
+## VBM3D 実行ガイド
+### 1. 実行場所の基本ルール
+VBM3Dに付属しているシェルスクリプト（*.sh）は、「自分が今いるディレクトリ（./）」にある実行ファイルを呼び出すように書かれています。
+そのため、プロジェクトのルートではなく、必ず build/bin/ フォルダの中に移動してからスクリプトを実行する必要があります。
+
+### 2. 実行前の準備
+画像シーケンスを入力として使用します。ルートディレクトリ（vbm3d/）に video フォルダを作成し、連番画像を配置してください。
+
+テスト用ダミー画像の生成例（ルートディレクトリで実行）:
+```Bash
+mkdir -p video
+ffmpeg -f lavfi -i testsrc=duration=1:size=640x480:rate=10 video/i%04d.png
+```
+
+### 3. 基本のノイズ除去を実行する
+バイナリファイル（VBM3Ddenoising）を直接実行します。
+
+実行コマンド:
+
+```Bash
+cd build/bin
+./VBM3Ddenoising -i ../../video/i%04d.png -f 1 -l 10 -sigma 20
+```
+
+- -i : 入力画像のパス（build/bin/ から見た相対パス ../../ を指定）
+
+- -f : 開始フレーム番号
+
+- -l : 終了フレーム番号
+
+- -sigma : ノイズの標準偏差
+- 出力先 : build/bin/ 内に bsic_*.png と deno_*.png が生成されます。
+
+### 4. オプティカルフロー付きノイズ除去を実行する（推奨）
+動き補償を用いて精度を高めるスクリプトです。内部で複数のプログラム（tvl1flowなど）を順次呼び出します。
+
+実行コマンド:
+
+```Bash
+cd build/bin
+./VBM3Ddenoising_OF.sh ../../video/i%04d.png 20 ../../deno_OF_%03d.tif 1 10
+```
+- 引数の順序 : 入力ファイルパス ノイズ標準偏差 出力ファイルパス 開始フレーム 終了フレーム
+
+- 出力先 : 上記の例では、プロジェクトのルートディレクトリ（../../）に deno_OF_001.tif 等が生成されます。
+
+- 注意 : 途中で生成されるオプティカルフローファイル（.flo）は build/bin/ 内に一時的に出力されます。
+
+
+
+
+
+
+---
+---
+---
+
+
+
+
+
+
 OVERVIEW
 --------
 

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libVBM3DLibrary.a CMakeFiles/VBM3DLibrary.dir/vbm3d.cpp.o CMakeFiles/VBM3DLibrary.dir/lib_transforms.cpp.o CMakeFiles/VBM3DLibrary.dir/Utilities/iio.c.o CMakeFiles/VBM3DLibrary.dir/Utilities/LibImages.cpp.o CMakeFiles/VBM3DLibrary.dir/Utilities/mt19937ar.c.o CMakeFiles/VBM3DLibrary.dir/Utilities/LibVideoT.cpp.o CMakeFiles/VBM3DLibrary.dir/Utilities/Utilities.cpp.o
+/usr/bin/ranlib libVBM3DLibrary.a
