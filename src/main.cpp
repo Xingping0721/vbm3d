@@ -347,7 +347,7 @@ int main(int argc, char **argv)
 
     //! Load video
     vid.loadVideo(input_path, firstFrame, lastFrame, frameStep);
-    if(kHard == 0)
+    if(kHard == 0) // すでに基礎推定が終了しているときに、step1をスキップし、step2のウィーナーフィルタリングから始める。
         vid_basic.loadVideo(inbsc_path, firstFrame, lastFrame, frameStep);
 
     if(fflow_path == "")
@@ -375,8 +375,8 @@ int main(int argc, char **argv)
                 "Try `%s --help' for more information.\n", argv[0], argv[0]),
                EXIT_FAILURE;
 
-    vid_noisy.resize(vid.sz);
-    vid_diff.resize(vid.sz);
+    vid_noisy.resize(vid.sz); // ノイズを加えた動画のサイズを入力動画と同じにする
+    vid_diff.resize(vid.sz); // 差分動画のサイズを入力動画と同じにする
 
     //! Add noise
     if(addnoise)
@@ -387,12 +387,12 @@ int main(int argc, char **argv)
         vid_noisy = vid;
     }
 
-    //! Denoising
+    //! Denoising // ノイズ入動画と動き情報をいれて、vid_basicに基礎推定動画、step2では、vid_denoisedに最終でノイズ動画を入れる
     if (run_vbm3d(fSigma, vid_noisy, fflow, bflow, vid_basic, vid_denoised,
                 prms_1, prms_2, color_space) != EXIT_SUCCESS)
         return EXIT_FAILURE;
 
-    //! Compute PSNR and RMSE
+    //! Compute PSNR and RMSE // ノイズ除去評価
     if (addnoise)
     {
         double psnr, rmse;
